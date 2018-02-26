@@ -1,1 +1,1 @@
-web: gunicorn baseballsimulator.wsgi --log-file -
+web: gunicorn baseballproject.wsgi --log-file -
