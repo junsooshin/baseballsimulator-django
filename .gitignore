@@ -99,3 +99,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+#############################
+# Other things added manually
+*.pyc
+*.sqlite3
+/baseballproject/settings/dev.py

@@ -1,0 +1,52 @@
+{% extends 'baseballsimulator/layout.html' %}
+
+{% block content %}
+<h1 align="center">Baseball Simulator!</h1>
+<br>
+
+<div class="row justify-content-md-center">
+	{% if invalidNames %}
+		<div class="alert alert-warning" role="alert">
+			Following players' names don't match the names in the database. 
+			Please check the spelling and try again.
+		</div>
+		<div class="col col-sm-4">
+			<ul>
+			{% for invalidName in invalidNames %}
+				<li>{{ invalidName }}</li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+</div>
+
+<br>
+<form action="{% url 'results' %}" method="GET">
+	<div class="row">
+		<div class="col-sm-2"></div> <!-- dummy div -->
+		<div class="col-sm-3">
+			<h3 align="center">Away Lineup</h3>
+			{% for field in formAway %}
+				<div class="form-group row">
+					{{ field }}
+				</div>
+			{% endfor %}
+		</div>
+		<div class="col-sm-2"></div> <!-- dummy div -->
+		<div class="col-sm-3">
+			<h3 align="center">Home Lineup</h3>
+			{% for field in formHome %}
+				<div class="form-group row">
+					{{ field }}
+				</div>
+			{% endfor %}
+		</div>
+		<div class="col-sm-2"></div> <!-- dummy div -->
+	</div>
+	<br>
+	<div class="text-center">
+		<button class="btn btn-primary col-sm-2" type="submit">Simulate</button>
+	</div>
+	<br>
+</form>
+{% endblock %}
