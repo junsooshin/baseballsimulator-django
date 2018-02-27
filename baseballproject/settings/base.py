@@ -13,8 +13,7 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['baseballsimulator.herokuapp.com', '127.0.0.1']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['baseballsimulator.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
