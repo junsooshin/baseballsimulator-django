@@ -44,9 +44,7 @@ Date: 26 February 2018
 - 2017 Play-by-play and Retrosheet BEVENT software
 	
 	<http://www.retrosheet.org/game.htm>
-	
 	<http://www.retrosheet.org/tools.htm>
-
 	<http://www.retrosheet.org/datause.txt>
 
 ## Sources:
@@ -62,33 +60,52 @@ Date: 26 February 2018
 - Help on Django (This is mainly for me to look back on later)
 	
    [Django Tutorial](https://docs.djangoproject.com/en/2.0/intro/tutorial01/)
+   
    [Django Crash Course YouTube Video](https://www.youtube.com/watch?v=D6esTdOLXh4)
+   
    [Virtualenv Documentation](https://virtualenv.pypa.io/en/stable/userguide/)
 
+   
    [How to activate virtual environment](https://stackoverflow.com/questions/46896093/how-to-activate-virtual-environment-from-windows-10-command-prompt)
+   
    [Setting django up to use mysql](https://stackoverflow.com/questions/19189813/setting-django-up-to-use-mysql)
+   
    [Trying to run django script as standalone models error](https://stackoverflow.com/questions/34757353/trying-to-run-django-script-as-standalone-models-error)
+   
    [Django revert last migration](https://stackoverflow.com/questions/32123477/django-revert-last-migration)
+   
    [How to reset migrations in django 1.7](https://stackoverflow.com/questions/29253399/how-to-reset-migrations-in-django-1-7)
+   
    [How to use external python script in django views](https://stackoverflow.com/questions/44759589/how-to-use-external-python-script-in-django-views)
 
    [How to style django forms with bootstrap](https://www.techinfected.net/2016/11/style-django-forms-with-bootstrap.html)
+   
    [BootStrap forms](https://getbootstrap.com/docs/4.0/components/forms/#form-grid)
+   
    [Django set field value after a form is initialized](https://stackoverflow.com/questions/813418/django-set-field-value-after-a-form-is-initialized)
 
+
    [Deploying Django to production](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment)
+   
    [Deploying Django on Heroku](https://devcenter.heroku.com/articles/django-app-configuration)
+   
    [getting started with postgresql on mac osx](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
 
 
 - Help on Python and Pandas (For future references as well)
-	
+   
    [Import error no module named pandas indexes](https://stackoverflow.com/questions/37371451/importerror-no-module-named-pandas-indexes)
+   
    [Combine multiple text files into one text file using python](https://stackoverflow.com/questions/17749058/combine-multiple-text-files-into-one-text-file-using-python)
+   
    [How to get full path of current files directory in python](https://stackoverflow.com/questions/3430372/how-to-get-full-path-of-current-files-directory-in-python)
+   
    [Pandas dataframe performance](https://stackoverflow.com/questions/22084338/pandas-dataframe-performance)
+   
    [How to store a dataframe using pandas](https://stackoverflow.com/questions/17098654/how-to-store-a-dataframe-using-pandas)
+   
    [What is pickle in python](https://pythontips.com/2013/08/02/what-is-pickle-in-python/)
+   
    [Guide to python profiling cprofile concrete case](https://julien.danjou.info/guide-to-python-profiling-cprofile-concrete-case-carbonara/)
 
 ## Things to be implemented in the future:
