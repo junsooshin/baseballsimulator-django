@@ -44,7 +44,9 @@ Date: 26 February 2018
 - 2017 Play-by-play and Retrosheet BEVENT software
 	
 	<http://www.retrosheet.org/game.htm>
+
 	<http://www.retrosheet.org/tools.htm>
+	
 	<http://www.retrosheet.org/datause.txt>
 
 ## Sources:
