@@ -140,7 +140,7 @@ def simulate(batterListAway, pitcherAway, batterListHome, pitcherHome, league):
 	brDF = pd.read_pickle(baserunningFilePath)
 	winAway = 0
 	winHome = 0
-	numGames = 1000
+	numGames = 500
 	for i in range(0, numGames):
 		result = playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, brDF)
 		if result == 0:
