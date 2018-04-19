@@ -3,7 +3,7 @@
 # I ran this program beforehand to save the models in the database.
 
 import os, sys, django
-sys.path.append('/Users/JunSooShin/Desktop/baseballproject')
+sys.path.append('/Users/JunSooShin/Desktop/baseballsimulator-django')
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'baseballproject.settings.prod')
 django.setup()
 
