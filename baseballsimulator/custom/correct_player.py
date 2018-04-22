@@ -58,7 +58,7 @@ def check_names(batterNamesAway, pitcherNameAway, batterNamesHome, pitcherNameHo
 # --------------------------------- Notes ----------------------------------- #
 #
 # Purpose: get_correct_player method makes sure to return the correct player
-#		   object to views, after checking for duplicate-named players or
+#		   object to views, after checking for players with same names or
 #		   players with small sample sizes.
 #
 # For batters, there are 4 same-name players
