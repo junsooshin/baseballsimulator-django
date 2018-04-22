@@ -3,7 +3,8 @@ from baseballsimulator.forms import FormAway, FormHome
 from django.shortcuts import render
 
 from .models import Batter, Pitcher, League 
-from baseballsimulator.custom import check_names, simulation
+from baseballsimulator.custom.correct_player import check_names, get_correct_player
+from baseballsimulator.custom.simulation import simulate
 
 # display the form to fill out player names
 def index(request):
@@ -39,7 +40,7 @@ def results(request):
 	pitcherNameAway = request.GET.get('pitcherAway')
 	pitcherNameHome = request.GET.get('pitcherHome')
 
-	invalidNames = check_names.check_names(batterNamesAway, pitcherNameAway, batterNamesHome, pitcherNameHome)
+	invalidNames = check_names(batterNamesAway, pitcherNameAway, batterNamesHome, pitcherNameHome)
 	
 	if invalidNames:
 		formAway = FormAway(initial={'batterAway1': batterNamesAway[0],
@@ -72,16 +73,16 @@ def results(request):
 		batterListAway = []
 		batterListHome = []
 		for batterNameAway, batterNameHome in zip(batterNamesAway, batterNamesHome):
-			batterListAway.append(Batter.objects.get(name=batterNameAway))
-			batterListHome.append(Batter.objects.get(name=batterNameHome))
-		pitcherAway = Pitcher.objects.get(name=pitcherNameAway)
-		pitcherHome = Pitcher.objects.get(name=pitcherNameHome)
+			batterListAway.append(get_correct_player(batterNameAway, 'batter'))
+			batterListHome.append(get_correct_player(batterNameHome, 'batter'))
+		pitcherAway = get_correct_player(pitcherNameAway, 'pitcher')
+		pitcherHome = get_correct_player(pitcherNameHome, 'pitcher')
 		league = League.objects.get(year=2017)
-		winAway, winHome = simulation.simulate(batterListAway, pitcherAway, 
-											   batterListHome, pitcherHome, 
-											   league)
+		result = simulate(batterListAway, pitcherAway, 
+						  batterListHome, pitcherHome,
+						  league)
 		context = {
-			'winAway': winAway,
-			'winHome': winHome,
+			'winningPercentageAway': result[0],
+			'winningPercentageHome': result[1],
 		}
 		return render(request, 'baseballsimulator/results.html', context)

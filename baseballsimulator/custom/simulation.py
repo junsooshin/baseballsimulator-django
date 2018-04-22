@@ -3,9 +3,9 @@
 #
 # results() view calls this program to get the simulation results.
 
-import os
 import pandas as pd
 from numpy.random import choice
+from pathlib import Path
 
 # calculates and returns the list of probabilities of each outcome of a plate 
 # appearance
@@ -69,7 +69,6 @@ def playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, b
 			if scoreAway != scoreHome:
 				break
 
-		# print("--- inning: " + str(inning) + " ---")
 		if (inning % 1.0) == 0.0:  # away team bats
 			batter = batterListAway[battingOrderAway]
 			pitcher = pitcherHome
@@ -111,7 +110,6 @@ def playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, b
 				out += 1
 
 			state = str(out) + "," + bases
-			# print("batting team score: " + str(score) + " | batter: " + str(battingOrder) + " | play: " + play + " | new state: " + state)
 			if battingOrder < 8:
 				battingOrder += 1
 			else:
@@ -130,23 +128,28 @@ def playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, b
 		state = "0,000"
 
 	if scoreAway > scoreHome:
-		return 0
+		return (0, scoreAway, scoreHome)
 	else:
-		return 1
+		return (1, scoreAway, scoreHome)
 
 # simulates games between two teams and returns the winning percentages
 def simulate(batterListAway, pitcherAway, batterListHome, pitcherHome, league):
-	baserunningFilePath = os.path.join(os.path.dirname(os.path.abspath(__file__)), '2017baserunning.pkl')
+	parentDir = Path(__file__).resolve().parent
+	baserunningFilePath = parentDir.joinpath('2017baserunning.pkl')
 	brDF = pd.read_pickle(baserunningFilePath)
 	winAway = 0
 	winHome = 0
+	runAway = 0
+	runHome = 0
 	numGames = 500
 	for i in range(0, numGames):
 		result = playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, brDF)
-		if result == 0:
+		runAway += result[1]
+		runHome += result[2]
+		if result[0] == 0:
 			winAway += 1
 		else:
 			winHome += 1
 	winningPercentageAway = int((winAway / numGames) * 100)
 	winningPercentageHome = 100 - winningPercentageAway
-	return (winningPercentageAway, winningPercentageHome)
+	return (winningPercentageAway, winningPercentageHome, runAway, runHome)
