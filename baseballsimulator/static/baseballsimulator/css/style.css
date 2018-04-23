@@ -22,8 +22,20 @@
     color: #f0ad4e;
 }
 
-p {
+h1 {
+	text-align: center;
+}
+h2 {
+	text-align: center;
+}
+h3 {
+	text-align: center;
+}
+p.info {
 	font-size: 14px;
+}
+p.lineup {
+	padding: 0 0 0 28%;
 }
 ul {
 	margin: 0 0 0.75rem;

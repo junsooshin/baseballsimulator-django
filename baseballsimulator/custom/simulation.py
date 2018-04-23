@@ -141,7 +141,7 @@ def simulate(batterListAway, pitcherAway, batterListHome, pitcherHome, league):
 	winHome = 0
 	runAway = 0
 	runHome = 0
-	numGames = 500
+	numGames = 1
 	for i in range(0, numGames):
 		result = playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, brDF)
 		runAway += result[1]

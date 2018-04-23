@@ -3,13 +3,14 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'baseballsimulator/css/style.css' %}" />
+
 <br>
-<h1 align="center">2017 Baseball Simulator</h1>
+<h1>2017 Baseball Simulator</h1>
 <div class="row">
 	<div class="col-sm-2"></div> <!-- dummy div -->
 	<div class="col-sm-8 bs-callout bs-callout-info">
 		<h6>Multiple players with the same name</h6>
-		<p>
+		<p class="info">
 			In 2017, there were <strong>four</strong> sets of players who shared the same names.
 			In order to choose the correct players, please use the following
 			identifiers when referring to these players.
@@ -25,7 +26,7 @@
 	{% if invalidNames %}
 	<div class="col-sm-2"></div> <!-- dummy div -->
 	<div class="col-sm-8 alert alert-warning" role="alert">
-		<p>
+		<p class="info">
 			The following players' names didn't match the names in our database. 
 			Sometimes the names are strangely spelled. 
 			Please check the spelling on <a href="https://www.fangraphs.com/" target="_blank">FanGrahps.com</a> and try again.
@@ -45,7 +46,7 @@
 	<div class="row">
 		<div class="col-sm-2"></div> <!-- dummy div -->
 		<div class="col-sm-3">
-			<h3 align="center">Away Lineup</h3>
+			<h3>Away Lineup</h3>
 			{% for field in formAway %}
 				<div class="form-group row">
 					{{ field }}
@@ -54,7 +55,7 @@
 		</div>
 		<div class="col-sm-2"></div> <!-- dummy div -->
 		<div class="col-sm-3">
-			<h3 align="center">Home Lineup</h3>
+			<h3>Home Lineup</h3>
 			{% for field in formHome %}
 				<div class="form-group row">
 					{{ field }}

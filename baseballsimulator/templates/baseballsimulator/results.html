@@ -1,29 +1,32 @@
 {% extends 'baseballsimulator/layout.html' %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'baseballsimulator/css/style.css' %}" />
+
 <br>
-<h1 align="center">2017 Baseball Simulator Results</h1>
+<h1>2017 Baseball Simulator Results</h1>
 <br>
 
 <div class="row">
 	<div class="col-sm-2"></div> <!-- dummy div -->
 	<div class="col-sm-4">
-		<h2 align="center">Away</h2>
-		<h2 align="center">{{ winningPercentageAway }}%</h2>
+		<h2>Away</h2>
+		<h2>{{ winningPercentageAway }}%</h2>
 		<br>
 		{% for batterNameAway in batterNamesAway %}
-			<p align="center">{{ forloop.counter }}. {{ batterNameAway }}</p>
+			<p class="lineup">{{ forloop.counter }}. {{ batterNameAway }}</p>
 		{% endfor %}
-			<p align="center">P. {{ pitcherNameAway }}
+		<p class="lineup">P. {{ pitcherNameAway }}</p>
 	</div>
 	<div class="col-sm-4">
-		<h2 align="center">Home</h2>
-		<h2 align="center">{{ winningPercentageHome }}%</h2>
+		<h2>Home</h2>
+		<h2>{{ winningPercentageHome }}%</h2>
 		<br>
 		{% for batterNameHome in batterNamesHome %}
-			<p align="center">{{ forloop.counter }}. {{ batterNameHome }}</p>
+			<p class="lineup">{{ forloop.counter }}. {{ batterNameHome }}</p>
 		{% endfor %}
-			<p align="center">P. {{ pitcherNameHome }}
+		<p class="lineup">P. {{ pitcherNameHome }}</p>
 	</div>
 	<div class="col-sm-2"></div> <!-- dummy div -->
 </div>
