@@ -84,5 +84,9 @@ def results(request):
 		context = {
 			'winningPercentageAway': result[0],
 			'winningPercentageHome': result[1],
+			'batterNamesAway': batterNamesAway,
+			'batterNamesHome': batterNamesHome,
+			'pitcherNameAway': pitcherNameAway,
+			'pitcherNameHome': pitcherNameHome,
 		}
 		return render(request, 'baseballsimulator/results.html', context)

@@ -11,11 +11,9 @@ Date: 26 February 2018
 ## Note:
 
 - This is an extension project from [the one I wrote before](https://github.com/junsooshin/baseballsimulator). 
-  Almost the same code from the previous project was used for the file that 
-  runs the simulations.
 
-- The main focus for this project was to learn Django and speed up the 
-  simulator by storing data in the database.
+- The main focus for this project was to learn Django, speed up the simulator
+  by storing data in the database, and deploying it on the web server.
 
 ## Using the simulator:
 
@@ -109,6 +107,8 @@ Date: 26 February 2018
    [What is pickle in python](https://pythontips.com/2013/08/02/what-is-pickle-in-python/)
    
    [Guide to python profiling cprofile concrete case](https://julien.danjou.info/guide-to-python-profiling-cprofile-concrete-case-carbonara/)
+
+   [How to enumerate in Django template](https://stackoverflow.com/questions/5013367/how-to-run-this-code-in-django-template)
 
 ## Things to be implemented in the future:
 

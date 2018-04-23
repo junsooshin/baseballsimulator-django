@@ -4,5 +4,27 @@
 <br>
 <h1 align="center">2017 Baseball Simulator Results</h1>
 <br>
-<h3 align="center">Away {{ winningPercentageAway }}% : Home {{ winningPercentageHome }}%</h3>
+
+<div class="row">
+	<div class="col-sm-2"></div> <!-- dummy div -->
+	<div class="col-sm-4">
+		<h2 align="center">Away</h2>
+		<h2 align="center">{{ winningPercentageAway }}%</h2>
+		<br>
+		{% for batterNameAway in batterNamesAway %}
+			<p align="center">{{ forloop.counter }}. {{ batterNameAway }}</p>
+		{% endfor %}
+			<p align="center">P. {{ pitcherNameAway }}
+	</div>
+	<div class="col-sm-4">
+		<h2 align="center">Home</h2>
+		<h2 align="center">{{ winningPercentageHome }}%</h2>
+		<br>
+		{% for batterNameHome in batterNamesHome %}
+			<p align="center">{{ forloop.counter }}. {{ batterNameHome }}</p>
+		{% endfor %}
+			<p align="center">P. {{ pitcherNameHome }}
+	</div>
+	<div class="col-sm-2"></div> <!-- dummy div -->
+</div>
 {% endblock %}
