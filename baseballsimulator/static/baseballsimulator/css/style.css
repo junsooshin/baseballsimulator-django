@@ -1,0 +1,45 @@
+/* https://cpratt.co/twitter-bootstrap-callout-css-styles/
+   bs-callout style is borrowed from Chris Pratt.
+*/
+
+.bs-callout {
+    padding: 12px 10px 0px 20px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    border-left-width: 4px;
+    border-radius: 3px;
+}
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+.bs-callout-info h6 {
+    color: #5bc0de;
+}
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+.bs-callout-warning h6 {
+    color: #f0ad4e;
+}
+
+p {
+	font-size: 14px;
+}
+ul {
+	margin: 0 0 0.75rem;
+}
+li {
+	font-size: 14px;
+}
+a:link {
+	color: #8a6d3b;
+}
+a:hover {
+	color: #8a6d3b;
+}
+a:visited {
+	color: #8a6d3b;
+}
+a:active {
+	color: #8a6d3b;
+}
