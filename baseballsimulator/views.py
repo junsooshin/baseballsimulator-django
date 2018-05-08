@@ -78,7 +78,8 @@ def results(request):
 		pitcherAway = get_correct_player(pitcherNameAway, 'pitcher')
 		pitcherHome = get_correct_player(pitcherNameHome, 'pitcher')
 		league = League.objects.get(year=2017)
-		result = simulate(batterListAway, pitcherAway, 
+		result = simulate(500,
+						  batterListAway, pitcherAway, 
 						  batterListHome, pitcherHome,
 						  league)
 		context = {

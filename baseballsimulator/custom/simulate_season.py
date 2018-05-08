@@ -47,13 +47,14 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'baseballproject.settings.prod')
 django.setup()
 
 from baseballsimulator.models import Batter, Pitcher, League
-import check_names, simulation
+import simulation
 import pandas as pd
 
-def simulate_season():
+def simulate_season(numGames):
 	numSuccessfulPredictions = 0
 	with open('2017gamelogs.txt', 'r') as infile, open('2017simulations.txt', 'w') as outfile:
-		outfile.write("index,winAway,winHome,predictedWinner,actualWinner,numSuccessfulPredictions\n")
+		outfile.write("index,awayTeam,winAway,runAway,homeTeam,winHome,runHome,"
+					  + "predictedWinner,actualWinner,numSuccessfulPredictions\n")
 		for index, line in enumerate(infile, start=1):
 			gameInfo = [x.strip('\"') for x in line.split(',')]
 
@@ -74,15 +75,16 @@ def simulate_season():
 			batterListAway = []
 			batterListHome = []
 			for batterInfoAway, batterInfoHome in zip(batterInfoListAway, batterInfoListHome):
-				batterListAway.append(get_correct_batter_object(batterInfoAway, gameInfo[105:133]))
-				batterListHome.append(get_correct_batter_object(batterInfoHome, gameInfo[133:159]))
+				batterListAway.append(get_correct_batter_object(batterInfoAway))
+				batterListHome.append(get_correct_batter_object(batterInfoHome))
 
 			pitcherAway = get_correct_pitcher_object(pitcherInfoAway)
 			pitcherHome = get_correct_pitcher_object(pitcherInfoHome)
 			league = League.objects.get(year=2017)
-			winAway, winHome, runAway, runHome = simulation.simulate(batterListAway, pitcherAway, 
-												   batterListHome, pitcherHome, 
-												   league)
+			winAway, winHome, runAway, runHome = simulation.simulate(numGames,
+																	 batterListAway, pitcherAway, 
+												   					 batterListHome, pitcherHome, 
+												   					 league)
 			predictedWinner = 'Home'
 			if winAway > winHome:
 				predictedWinner = 'Away'
@@ -135,7 +137,7 @@ def get_fangraphs_name(playerName):
 
 # check for batters that share the same name or have small sample size and 
 # return the correct batter object
-def get_correct_batter_object(batterInfo, battingLineupInfo):
+def get_correct_batter_object(batterInfo):
 	batterID = batterInfo[0]
 	batterName = batterInfo[1]
 	batterObject = None
@@ -205,4 +207,9 @@ def print_invalid_names(batterInfoListAway, pitcherInfoAway, batterInfoListHome,
 	if invalidNames:
 		print(invalidNames)
 
-simulate_season()
+def main():
+	numGames = 1000
+	simulate_season(numGames)
+	
+if __name__ == "__main__":
+	main()

@@ -198,4 +198,6 @@ def main():
 	fill_pitcher_ojbects()
 	fill_league_objects()
 	fill_small_sample_players()
-main()
+
+if __name__ == "__main__":
+	main()

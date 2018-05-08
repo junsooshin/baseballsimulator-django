@@ -133,7 +133,7 @@ def playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, b
 		return (1, scoreAway, scoreHome)
 
 # simulates games between two teams and returns the winning percentages
-def simulate(batterListAway, pitcherAway, batterListHome, pitcherHome, league):
+def simulate(numGames, batterListAway, pitcherAway, batterListHome, pitcherHome, league):
 	parentDir = Path(__file__).resolve().parent
 	baserunningFilePath = parentDir.joinpath('2017baserunning.pkl')
 	brDF = pd.read_pickle(baserunningFilePath)
@@ -141,7 +141,6 @@ def simulate(batterListAway, pitcherAway, batterListHome, pitcherHome, league):
 	winHome = 0
 	runAway = 0
 	runHome = 0
-	numGames = 500
 	for i in range(0, numGames):
 		result = playGame(batterListAway, pitcherAway, batterListHome, pitcherHome, league, brDF)
 		runAway += result[1]
