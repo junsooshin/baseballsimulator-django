@@ -69,7 +69,7 @@ DATABASES = {
         'NAME': 'baseballsimulatordb',
         'USER': os.environ['BASEBALLSIMULATORDB_USER'],
         'PASSWORD': os.environ['BASEBALLSIMULATORDB_PASSWORD'],
-        'HOST': 'localhost',
+        'HOST': '',
         'PORT': '',
     }
 }
