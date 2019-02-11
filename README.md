@@ -22,8 +22,14 @@ Date: 26 February 2018
   messages will show up at the top of the page, specifying which player's name
   was misspelled.
 
-- The webpage takes about 15 seconds to load only at first and about 5 seconds
+- The webpage takes about 15 seconds to load only at first and about 10 seconds
   to run the simulations.
+
+- Example:
+<br><br>
+![Main Page with the 2017 World Series Game 1 lineups](./screenshots/baseball_simulator_main_page.png "Main Page with the 2017 World Series Game 1 lineups")
+<br><br>
+![Results Page with the 2017 World Series Game 1 lineups](./screenshots/baseball_simulator_results_page.png "Results Page with the 2017 World Series Game 1 lineups")
 
 ## Data sources:
 

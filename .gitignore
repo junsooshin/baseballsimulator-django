@@ -105,3 +105,4 @@ ENV/
 *.pyc
 *.sqlite3
 /baseballproject/settings/dev.py
+.DS_Store
