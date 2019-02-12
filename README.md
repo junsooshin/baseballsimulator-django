@@ -34,7 +34,7 @@ Date: 26 February 2018
 ## Little test for the simulator:
 
 - The files for this test are stored [in this folder](https://github.com/junsooshin/baseballsimulator-django/tree/master/baseballsimulator/custom/steamer), except for
-the pickled baserunning data, which is stored in a parent folder.
+the pickled baserunning data, which is stored in the parent folder.
 
 - I wanted to see if the simulator works at all, so I decided to compare its
   simulation results to FiveThirtyEight's and FanGraphs's projected standings
