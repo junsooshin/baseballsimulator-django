@@ -45,11 +45,15 @@ the pickled baserunning data, which is stored in the parent folder.
   I ran my simulator using the 2017 Steamer's player projections that was
   created pre-season and the 2016 Retrosheet baserunning stats. The games were
   simulated according to the team-matchups and starting lineups recorded in 
-  the 2017 Retrosheet gamelogs. 
+  the 2017 Retrosheet gamelogs.
+  <br><br>
   I ran each game just once for a season and for 100 seasons. (I also tried
   running 100 simulations per game and for just one season, but that did not
   do so well.) Then I averaged the win records for each team and rounded the 
-  average to the nearest integer to form my projection for each team.
+  average to the nearest integer to form my projection for each team. So, the
+  eventual results would answer, "on average, how many games would each team 
+  win over a season?" and *not* "in how many games did the simulator correctly 
+  predict the winner?"
   <br><br>
   FiveThirtyEight's pre-season projections were already rounded to integers,
   and I rounded FanGraphs's pre-season projections to integers.
