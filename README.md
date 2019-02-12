@@ -67,7 +67,7 @@ the pickled baserunning data, which is stored in a parent folder.
 
   [FiveThirtyEight's Methodology](https://fivethirtyeight.com/features/how-our-2017-mlb-predictions-work/)
 
-  [FanGraph's 2017 Projected Standings](https://www.fangraphs.com/standings/playoff-odds/fg/mlb?date=2017-04-01&dateDelta=&displayOption=)
+  [FanGraph's 2017 Projected Standings](https://www.fangraphs.com/standings/playoff-odds/fg/div?date=2017-04-01&dateDelta=&displayOption=)
 
   [FanGraphs's explanation on various projection systems](https://library.fangraphs.com/principles/projections/)
 
