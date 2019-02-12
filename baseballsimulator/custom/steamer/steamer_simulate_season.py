@@ -59,23 +59,23 @@ def create_dataframes():
   ssPitcher = None
 
   batterDF = batterDF.assign(Name = batterDF['firstname'] + ' ' + batterDF['lastname'],
-                 p1b = batterDF['1B'] / batterDF['PA'],
-                 p2b = batterDF['2B'] / batterDF['PA'],
-                 p3b = batterDF['3B'] / batterDF['PA'],
-                 phr = batterDF['HR'] / batterDF['PA'],
-                 ptw = (batterDF['BB'] + batterDF['HBP']) / batterDF['PA'],
-                 pso = batterDF['K'] / batterDF['PA'],
-                 pbo = (batterDF['PA'] - batterDF['H'] - batterDF['BB']
-                          - batterDF['HBP'] - batterDF['K']) / batterDF['PA'])
+                             p1b = batterDF['1B'] / batterDF['PA'],
+                             p2b = batterDF['2B'] / batterDF['PA'],
+                             p3b = batterDF['3B'] / batterDF['PA'],
+                             phr = batterDF['HR'] / batterDF['PA'],
+                             ptw = (batterDF['BB'] + batterDF['HBP']) / batterDF['PA'],
+                             pso = batterDF['K'] / batterDF['PA'],
+                             pbo = (batterDF['PA'] - batterDF['H'] - batterDF['BB']
+                                    - batterDF['HBP'] - batterDF['K']) / batterDF['PA'])
   pitcherDF = pitcherDF.assign(Name = pitcherDF['firstname'] + ' ' + pitcherDF['lastname'],
-                 p1b = pitcherDF['1b'] / pitcherDF['TBF'],
-                   p2b = pitcherDF['2b'] / pitcherDF['TBF'],
-                   p3b = pitcherDF['3b'] / pitcherDF['TBF'],
-                   phr = pitcherDF['HR'] / pitcherDF['TBF'],
-                   ptw = (pitcherDF['BB'] + pitcherDF['HBP']) / pitcherDF['TBF'],
-                   pso = pitcherDF['K'] / pitcherDF['TBF'],
-                   pbo = (pitcherDF['TBF'] - pitcherDF['H'] - pitcherDF['BB']
-                              - pitcherDF['HBP'] - pitcherDF['K']) / pitcherDF['TBF'])
+                               p1b = pitcherDF['1b'] / pitcherDF['TBF'],
+                               p2b = pitcherDF['2b'] / pitcherDF['TBF'],
+                               p3b = pitcherDF['3b'] / pitcherDF['TBF'],
+                               phr = pitcherDF['HR'] / pitcherDF['TBF'],
+                               ptw = (pitcherDF['BB'] + pitcherDF['HBP']) / pitcherDF['TBF'],
+                               pso = pitcherDF['K'] / pitcherDF['TBF'],
+                               pbo = (pitcherDF['TBF'] - pitcherDF['H'] - pitcherDF['BB']
+                                      - pitcherDF['HBP'] - pitcherDF['K']) / pitcherDF['TBF'])
   batterDF.set_index('Name', inplace=True)
   pitcherDF.set_index('Name', inplace=True)
 
@@ -89,7 +89,7 @@ def simulate_season(numGames, numSeasons, batterDF, pitcherDF, leagueObject, ssB
   numSuccessfulPredictions = 0
   with open('../2017gamelogs.txt', 'r') as infile, open('2017SteamerSimulations.txt', 'w') as outfile:
     outfile.write("index,awayTeam,winAway,runAway,homeTeam,winHome,runHome,"
-            + "predictedWinner,actualWinner,numSuccessfulPredictions\n")
+                  + "predictedWinner,actualWinner,numSuccessfulPredictions\n")
     for index, line in enumerate(infile, start=1):
       gameInfo = [x.strip('\"') for x in line.split(',')]
 
@@ -111,18 +111,18 @@ def simulate_season(numGames, numSeasons, batterDF, pitcherDF, leagueObject, ssB
       batterListHome = []
       for batterInfoAway, batterInfoHome in zip(batterInfoListAway, batterInfoListHome):
         batterListAway.append(get_correct_batter_object(batterDF, ssBatter, 
-                                batterInfoAway))
+                                                        batterInfoAway))
         batterListHome.append(get_correct_batter_object(batterDF, ssBatter, 
-                                batterInfoHome))
+                                                        batterInfoHome))
 
       pitcherAway = get_correct_pitcher_object(pitcherDF, ssPitcher, pitcherInfoAway)
       pitcherHome = get_correct_pitcher_object(pitcherDF, ssPitcher, pitcherInfoHome)
 
       for i in range(numSeasons):
         winAway, winHome, runAway, runHome = simulation.simulate(numGames,
-                                     batterListAway, pitcherAway, 
-                                       batterListHome, pitcherHome, 
-                                       leagueObject)
+                                                                 batterListAway, pitcherAway, 
+                                                                 batterListHome, pitcherHome, 
+                                                                 leagueObject)
         predictedWinner = 'Home'
         if winAway > winHome:
           predictedWinner = 'Away'
@@ -136,10 +136,10 @@ def simulate_season(numGames, numSeasons, batterDF, pitcherDF, leagueObject, ssB
           numSuccessfulPredictions += 1
 
         outfile.write(str(index) + ',' 
-                + gameInfo[3] + ',' + str(winAway) + ',' + str(runAway) + ',' 
-                + gameInfo[6] + ',' + str(winHome) + ',' + str(runHome) + ',' 
-                + predictedWinner + ',' + actualWinner + ',' 
-                + str(numSuccessfulPredictions) + '\n')
+                      + gameInfo[3] + ',' + str(winAway) + ',' + str(runAway) + ',' 
+                      + gameInfo[6] + ',' + str(winHome) + ',' + str(runHome) + ',' 
+                      + predictedWinner + ',' + actualWinner + ',' 
+                      + str(numSuccessfulPredictions) + '\n')
 
 # standalone function that:
 #   - finds the differences in the Retrosheet and Steamer names
@@ -162,9 +162,9 @@ def find_name_anomalies(batterDF, pitcherDF):
   batterDiff = rsBatterNames - rsPitcherNames - steamerBatterNames - steamerPitcherNames
   
   dupBatterNames = [(x, steamerBatterNames.count(x)) for x in rsBatterNames 
-                             if steamerBatterNames.count(x) > 1]
+                    if steamerBatterNames.count(x) > 1]
   dupPitcherNames = [(x, steamerPitcherNames.count(x)) for x in rsPitcherNames 
-                             if steamerPitcherNames.count(x) > 1]
+                     if steamerPitcherNames.count(x) > 1]
 
 # check for the unique Retrosheet name and return the Steamer name
 def get_steamer_name(playerName):
@@ -217,13 +217,13 @@ def get_correct_batter_object(batterDF, ssBatter, batterInfo):
   steamerBatterNames = batterDF.index.tolist()
   dupBatterTable = {
     'robed004': 'sa657854',  # Daniel Robertson, Rays
-    'robed003': '6266',    # Daniel Robertson, Indians
-    'martj008': '7996',    # Jose Martinez, Cardinals
-    'vazqc001': '9774',    # Chrisian Vazquez, Red Sox
-    'perec003': '10642',   # Carlos Perez, Angels
-    'gonzc001': '7287',    # Carlos Gonzalez, Rockies
-    'moort002': '7244',    # Tyler Moore, Marlins
-    'sancc001': '11602'    # Yolmer Sanchez (Carlos Sanchez), White Sox
+    'robed003': '6266',      # Daniel Robertson, Indians
+    'martj008': '7996',      # Jose Martinez, Cardinals
+    'vazqc001': '9774',      # Chrisian Vazquez, Red Sox
+    'perec003': '10642',     # Carlos Perez, Angels
+    'gonzc001': '7287',      # Carlos Gonzalez, Rockies
+    'moort002': '7244',      # Tyler Moore, Marlins
+    'sancc001': '11602'      # Yolmer Sanchez (Carlos Sanchez), White Sox
   }
 
   if batterID in dupBatterTable:
@@ -246,10 +246,10 @@ def get_correct_pitcher_object(pitcherDF, ssPitcher, pitcherInfo):
   steamerPitcherNames = pitcherDF.index.tolist()
   dupPitcherTable = {
     'castl003': 'sa657487',  # Luis Castillo, Reds
-    'gonzm003': '7024',    # Miguel Gonzales, White Sox
-    'smitc002': '4544',    # Chris Smith, Athletics
-    'thomj007': '14371',   # Jake Thompson, Phillies
-    'reedc002': '15232',   # Cody Reed, Reds
+    'gonzm003': '7024',      # Miguel Gonzales, White Sox
+    'smitc002': '4544',      # Chris Smith, Athletics
+    'thomj007': '14371',     # Jake Thompson, Phillies
+    'reedc002': '15232',     # Cody Reed, Reds
     'smitc006': 'sa738884'   # Caleb Smith, Yankees
   }
 
@@ -261,7 +261,7 @@ def get_correct_pitcher_object(pitcherDF, ssPitcher, pitcherInfo):
   else:
     pitcherObject = pitcherDF.loc[pitcherName]
 
-  if  pitcherObject['TBF'] < 15:
+  if pitcherObject['TBF'] < 15:
     return ssPitcher
   else:
     return pitcherObject
@@ -282,11 +282,11 @@ def calc_third_party_simulations_errors():
 def calc_my_simulations_errors(numSeasons):
   MLBResults = [93,76,80,91,75,102,64,85,80,67,101,78,78,80,75,97,70,77,72,66,92,83,75,86,68,104,64,93,87,71]
   teams = ['BOS','TOR','TBA','NYA','BAL',
-       'CLE','DET','MIN','KCA','CHA',
-       'HOU','SEA','TEX','ANA','OAK',
-       'WAS','NYN','MIA','ATL','PHI',
-       'CHN','SLN','PIT','MIL','CIN',
-       'LAN','SFN','ARI','COL','SDN']
+           'CLE','DET','MIN','KCA','CHA',
+           'HOU','SEA','TEX','ANA','OAK',
+           'WAS','NYN','MIA','ATL','PHI',
+           'CHN','SLN','PIT','MIL','CIN',
+           'LAN','SFN','ARI','COL','SDN']
   predSeries = pd.Series(data=[0]*30, index=teams)
   simulationsDF = pd.read_csv('2017SteamerSimulations.txt')
   for index, row in simulationsDF.iterrows():
