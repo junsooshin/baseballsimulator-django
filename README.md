@@ -31,6 +31,50 @@ Date: 26 February 2018
 <br><br>
 ![Results Page with the 2017 World Series Game 1 lineups](./screenshots/baseball_simulator_results_page.png "Results Page with the 2017 World Series Game 1 lineups")
 
+## Little test for the simulator:
+
+- The files for this test are stored [in this folder](https://github.com/junsooshin/baseballsimulator-django/tree/master/baseballsimulator/custom/steamer), except for
+the pickled baserunning data, which is stored in a parent folder.
+
+- I wanted to see if the simulator works at all, so I decided to compare its
+  simulation results to FiveThirtyEight's and FanGraphs's projected standings
+  for the 2017 MLB season that had been generated before the season started. 
+  Since both systems incorporate Steamer projections into their projections, I 
+  also used them.
+  <br><br>
+  I ran my simulator using the 2017 Steamer's player projections that was
+  created pre-season and the 2016 Retrosheet baserunning stats. The games were
+  simulated according to the team-matchups and starting lineups recorded in 
+  the 2017 Retrosheet gamelogs. 
+  I ran each just once for a season and for 100 seasons. Then I averaged the 
+  win records for each team and rounded the average to the nearest integer to 
+  form my projection for each team.
+  <br><br>
+  FiveThirtyEight's pre-season projections were already rounded to integers,
+  and I rounded FanGraphs's pre-season projections to integers.
+  <br><br>
+  Finally, I calculated the absolute mean errors, using the projected win
+  records of the 30 teams and the actual results, for each projections.
+  <br><br>
+  This simulator did slightly better than either projection system in this
+  specific case and for particular measure. Of course, this by no means shows
+  that this simulator is superior, since this was only for 2017. I took the
+  result as a sign that my simulator could function properly, though.
+
+- Projection sources
+
+  [FiveThirtyEight's 2017 MLB Predictions](https://projects.fivethirtyeight.com/2017-mlb-predictions/)
+
+  [FiveThirtyEight's Methodology](https://fivethirtyeight.com/features/how-our-2017-mlb-predictions-work/)
+
+  [FanGraph's 2017 Projected Standings](https://www.fangraphs.com/standings/playoff-odds/fg/mlb?date=2017-04-01&dateDelta=&displayOption=)
+
+  [FanGraphs's explanation on various projection systems](https://library.fangraphs.com/principles/projections/)
+
+  [FanGraph's thoughts on their own projection system](https://blogs.fangraphs.com/lets-make-sure-were-honest-about-projections/)
+
+  [Archive of Steamer's pre-season player projections](http://steamerprojections.com/blog/about-2/)
+
 ## Data sources:
 
 - 2017 Batting (2017FanGraphsBatting.csv)
@@ -45,7 +89,7 @@ Date: 26 February 2018
 	
 	<http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=0&type=0&season=2017&month=0&season1=2017&ind=0&team=0,ss&rost=0&age=0&filter=&players=0>
 
-- 2017 Play-by-play and Retrosheet BEVENT software
+- 2017 Play-by-play and Retrosheet BEVENT software for baserunning numbers
 	
 	<http://www.retrosheet.org/game.htm>
 
@@ -70,7 +114,6 @@ Date: 26 February 2018
    [Django Crash Course YouTube Video](https://www.youtube.com/watch?v=D6esTdOLXh4)
    
    [Virtualenv Documentation](https://virtualenv.pypa.io/en/stable/userguide/)
-
    
    [How to activate virtual environment](https://stackoverflow.com/questions/46896093/how-to-activate-virtual-environment-from-windows-10-command-prompt)
    
@@ -121,8 +164,3 @@ Date: 26 February 2018
 - There are a lot of things to be implemented to refine the baseball simualtor
   itself, including pitcher management, using multiple season data, and using
   projection data to list a few.
-
-- To test how well this simulator simulates baseball matches, I will run the
-  matches from the 2017 season using the 2017 data and see if the results 
-  match well.
-

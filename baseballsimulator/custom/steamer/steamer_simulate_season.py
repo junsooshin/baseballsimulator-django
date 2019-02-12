@@ -3,15 +3,18 @@
 
 # ------------------------------- Description ------------------------------- #
 # 
-# Standalone program that simulates the 2017 MLB season using the 2017 Steamer
-# projections and 2016 baserunning stats.
+# A standalone program that simulates the 2017 MLB season using the 2017 
+# Steamer player projections and 2016 Retrosheet baserunning stats, and
+# following games and starting lineups recorded in the 2017 Retrosheet 
+# gamelogs.
 #
 # The purpose of this program is to see how well the simulator simulates the
-# baseball matches by comparing the average errors in teams' win-loss records
-# with the FiveThirtyEight's and Steamer's season predictions, whose models 
-# both use the Steamer projections. The simulator simulates 100 seasons and
-# uses the average win-loss records for those seasons as its final win-loss
-# predictions.
+# baseball matches by comparing the average errors in teams' win records
+# with the FiveThirtyEight's and FanGrphs's standings predictions, whose models
+# both use the Steamer projections. 
+#
+# The simulator simulates 100 seasons and uses the average win records (rounded
+# to the nearest integer) of the seasons as its final win predictions.
 #
 # Although this program is not part of the Django app, baseballsimulator, it is
 # located here because it tests the simulation.py module, which is the core
@@ -27,10 +30,11 @@
 # pitching projections -- tons of players and only pitchers.
 #
 # There were 7 batter names that showed up in the 2017 Retrosheet game logs 
-# and were shared with other players. There were 6 such pitcher names.
+# and were shared with other players (same name for different players). 
+# There were 6 such pitcher names. I took care of this manually.
 #
-# These numbers were different in FanGraphs because FanGraphs batting files
-# had small number of players and included pitchers.
+# Some player names listed in Retrosheet and the ones in Steamer projections
+# were different, so I took care of this manually as well.
 #
 # http://www.retrosheet.org/gamelogs/glfields.txt
 #		listed which information is recorded in the Retrosheet game logs.
