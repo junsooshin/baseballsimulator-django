@@ -61,9 +61,9 @@ the pickled baserunning data, which is stored in the parent folder.
   records of the 30 teams and the actual results, for each projections.
   <br><br>
   This simulator did slightly better than either projection system in this
-  specific case and for particular measure. Of course, this by no means shows
+  specific case and for a particular measure. Of course, this by no means shows
   that this simulator is superior, since this was only for 2017. I took the
-  result as a sign that my simulator could function properly, though.
+  result as a sign, though, that my simulator could function properly.
 
 - Projection sources
 
