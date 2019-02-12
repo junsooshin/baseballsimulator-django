@@ -50,10 +50,9 @@ the pickled baserunning data, which is stored in the parent folder.
   I ran each game just once for a season and for 100 seasons. (I also tried
   running 100 simulations per game and for just one season, but that did not
   do so well.) Then I averaged the win records for each team and rounded the 
-  average to the nearest integer to form my projection for each team. So, the
-  eventual results would answer, "on average, how many games would each team 
-  win over a season?" and *not* "in how many games did the simulator correctly 
-  predict the winner?"
+  average to the nearest integer to form my projection for each team. So, this
+  test does not care which game a team would win but rather how many games the
+  team would win over a season.
   <br><br>
   FiveThirtyEight's pre-season projections were already rounded to integers,
   and I rounded FanGraphs's pre-season projections to integers.
