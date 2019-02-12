@@ -23,35 +23,35 @@
 }
 
 h1 {
-	text-align: center;
+  text-align: center;
 }
 h2 {
-	text-align: center;
+  text-align: center;
 }
 h3 {
-	text-align: center;
+  text-align: center;
 }
 p.info {
-	font-size: 14px;
+  font-size: 14px;
 }
 p.lineup {
-	padding: 0 0 0 28%;
+  padding: 0 0 0 28%;
 }
 ul {
-	margin: 0 0 0.75rem;
+  margin: 0 0 0.75rem;
 }
 li {
-	font-size: 14px;
+  font-size: 14px;
 }
 a:link {
-	color: #8a6d3b;
+  color: #8a6d3b;
 }
 a:hover {
-	color: #8a6d3b;
+  color: #8a6d3b;
 }
 a:visited {
-	color: #8a6d3b;
+  color: #8a6d3b;
 }
 a:active {
-	color: #8a6d3b;
+  color: #8a6d3b;
 }

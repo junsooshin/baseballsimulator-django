@@ -7,67 +7,67 @@
 <br>
 <h1>2017 Baseball Simulator</h1>
 <div class="row">
-	<div class="col-sm-2"></div> <!-- dummy div -->
-	<div class="col-sm-8 bs-callout bs-callout-info">
-		<h6>Multiple players with the same name</h6>
-		<p class="info">
-			In 2017, there were <strong>four</strong> sets of players who shared the same names.
-			In order to choose the correct players, please use the following
-			identifiers when referring to these players.
-		</p>
-		<ul>
-			<li>Jose Ramirez, Indians <strong>or</strong> Jose Ramirez, Braves</li>
-			<li>Chris Young, Red Sox <strong>or</strong> Chris Young, Royals</li>
-			<li>Daniel Robertson, Rays <strong>or</strong> Daniel Robertson, Indians</li>
-			<li>Chris Smith, Athletics <strong>or</strong> Chris Smith, Blue Jays</li>
-		</ul>
-	</div>
-	<div class="col-sm-2"></div> <!-- dummy div -->
-	{% if invalidNames %}
-	<div class="col-sm-2"></div> <!-- dummy div -->
-	<div class="col-sm-8 alert alert-warning" role="alert">
-		<p class="info">
-			The following players' names didn't match the names in our database. 
-			Sometimes the names are strangely spelled. 
-			Please check the spelling on <a href="https://www.fangraphs.com/" target="_blank">FanGrahps.com</a> and try again.
-		</p>
-		<ul>
-		{% for invalidName in invalidNames %}
-			<li>{{ invalidName }}</li>
-		{% endfor %}
-		</ul>
-	</div>
-	<div class="col-sm-2"></div> <!-- dummy div -->
-	{% endif %}
+  <div class="col-sm-2"></div> <!-- dummy div -->
+  <div class="col-sm-8 bs-callout bs-callout-info">
+    <h6>Multiple players with the same name</h6>
+    <p class="info">
+      In 2017, there were <strong>four</strong> sets of players who shared the same names.
+      In order to choose the correct players, please use the following
+      identifiers when referring to these players.
+    </p>
+    <ul>
+      <li>Jose Ramirez, Indians <strong>or</strong> Jose Ramirez, Braves</li>
+      <li>Chris Young, Red Sox <strong>or</strong> Chris Young, Royals</li>
+      <li>Daniel Robertson, Rays <strong>or</strong> Daniel Robertson, Indians</li>
+      <li>Chris Smith, Athletics <strong>or</strong> Chris Smith, Blue Jays</li>
+    </ul>
+  </div>
+  <div class="col-sm-2"></div> <!-- dummy div -->
+  {% if invalidNames %}
+  <div class="col-sm-2"></div> <!-- dummy div -->
+  <div class="col-sm-8 alert alert-warning" role="alert">
+    <p class="info">
+      The following players' names didn't match the names in our database. 
+      Sometimes the names are strangely spelled. 
+      Please check the spelling on <a href="https://www.fangraphs.com/" target="_blank">FanGrahps.com</a> and try again.
+    </p>
+    <ul>
+    {% for invalidName in invalidNames %}
+      <li>{{ invalidName }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+  <div class="col-sm-2"></div> <!-- dummy div -->
+  {% endif %}
 </div>
 
 <br>
 <form action="{% url 'results' %}" method="GET">
-	<div class="row">
-		<div class="col-sm-2"></div> <!-- dummy div -->
-		<div class="col-sm-3">
-			<h3>Away Lineup</h3>
-			{% for field in formAway %}
-				<div class="form-group row">
-					{{ field }}
-				</div>
-			{% endfor %}
-		</div>
-		<div class="col-sm-2"></div> <!-- dummy div -->
-		<div class="col-sm-3">
-			<h3>Home Lineup</h3>
-			{% for field in formHome %}
-				<div class="form-group row">
-					{{ field }}
-				</div>
-			{% endfor %}
-		</div>
-		<div class="col-sm-2"></div> <!-- dummy div -->
-	</div>
-	<br>
-	<div class="text-center">
-		<button class="btn btn-primary col-sm-2" type="submit">Simulate</button>
-	</div>
-	<br>
+  <div class="row">
+    <div class="col-sm-2"></div> <!-- dummy div -->
+    <div class="col-sm-3">
+      <h3>Away Lineup</h3>
+      {% for field in formAway %}
+        <div class="form-group row">
+          {{ field }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="col-sm-2"></div> <!-- dummy div -->
+    <div class="col-sm-3">
+      <h3>Home Lineup</h3>
+      {% for field in formHome %}
+        <div class="form-group row">
+          {{ field }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="col-sm-2"></div> <!-- dummy div -->
+  </div>
+  <br>
+  <div class="text-center">
+    <button class="btn btn-primary col-sm-2" type="submit">Simulate</button>
+  </div>
+  <br>
 </form>
 {% endblock %}

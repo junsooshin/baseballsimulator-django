@@ -8,25 +8,25 @@
 <h1>2017 Baseball Simulator Results</h1>
 <br>
 <div class="row">
-	<div class="col-sm-2"></div> <!-- dummy div -->
-	<div class="col-sm-4">
-		<h2>Away</h2>
-		<h2>{{ winningPercentageAway }}%</h2>
-		<br>
-		{% for batterNameAway in batterNamesAway %}
-			<p class="lineup">{{ forloop.counter }}. {{ batterNameAway }}</p>
-		{% endfor %}
-		<p class="lineup">P. {{ pitcherNameAway }}</p>
-	</div>
-	<div class="col-sm-4">
-		<h2>Home</h2>
-		<h2>{{ winningPercentageHome }}%</h2>
-		<br>
-		{% for batterNameHome in batterNamesHome %}
-			<p class="lineup">{{ forloop.counter }}. {{ batterNameHome }}</p>
-		{% endfor %}
-		<p class="lineup">P. {{ pitcherNameHome }}</p>
-	</div>
-	<div class="col-sm-2"></div> <!-- dummy div -->
+  <div class="col-sm-2"></div> <!-- dummy div -->
+  <div class="col-sm-4">
+    <h2>Away</h2>
+    <h2>{{ winningPercentageAway }}%</h2>
+    <br>
+    {% for batterNameAway in batterNamesAway %}
+      <p class="lineup">{{ forloop.counter }}. {{ batterNameAway }}</p>
+    {% endfor %}
+    <p class="lineup">P. {{ pitcherNameAway }}</p>
+  </div>
+  <div class="col-sm-4">
+    <h2>Home</h2>
+    <h2>{{ winningPercentageHome }}%</h2>
+    <br>
+    {% for batterNameHome in batterNamesHome %}
+      <p class="lineup">{{ forloop.counter }}. {{ batterNameHome }}</p>
+    {% endfor %}
+    <p class="lineup">P. {{ pitcherNameHome }}</p>
+  </div>
+  <div class="col-sm-2"></div> <!-- dummy div -->
 </div>
 {% endblock %}

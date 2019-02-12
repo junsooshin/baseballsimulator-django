@@ -8,6 +8,6 @@ import glob
 read_files = glob.glob('*.txt')
 
 with open('2017plays.txt', 'wb') as outfile:
-	for f in read_files:
-		with open(f, 'rb') as infile:
-			outfile.write(infile.read())
+  for f in read_files:
+    with open(f, 'rb') as infile:
+      outfile.write(infile.read())
